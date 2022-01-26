@@ -96,6 +96,19 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  transform: translate(25px, 0);
+  opacity: 0;
+  transition: opacity $duration-fast linear 0.3s,
+              transform $duration-fast linear 0.3s;
+
+  .swiper-slide-active &,
+  .swiper-slide-next & {
+    opacity: 1;
+    transform: translate(0px, 0);
+  }
+  .swiper-slide-next & {
+    transition-delay: 0.45s, 0.45s;
+  }
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -112,6 +125,12 @@
     min-height: 11.6rem;
     font-size: 1.4rem;
     line-height: 1.5rem;
+
+    .swiper-slide-next & {
+      opacity: 0;
+      transform: translate(25px, 0);
+      transition-delay: 0.3s, 0.3s;
+    }
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
