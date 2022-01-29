@@ -26,7 +26,7 @@ export default () => {
       activeScreen.classList.remove(`active`);
 
       setTimeout(() => {
-        window.location.href = this.href
+        window.location.href = e.target.href;
       }, JUMP_TIMEOUT);
 
       if (window.innerWidth < 1025) {
