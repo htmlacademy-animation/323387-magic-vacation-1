@@ -5,6 +5,12 @@
   right: 0;
   padding: 2.7rem 0;
   z-index: 10;
+  opacity: 0;
+  transition: opacity $duration-average $ease-out-fast;
+
+  .loaded & {
+    opacity: 1;
+  }
 
   @media (min-width: $stop-scaling) {
     padding: 27px 0;
@@ -35,6 +41,12 @@
   padding: 1rem 0;
   width: 10rem;
   color: $c-light;
+  transform: translate(-25%, 0);
+  transition: transform $duration-average $ease-out-fast;
+
+  .loaded & {
+    transform: translate(0%, 0);
+  }
 
   @media (min-width: $stop-scaling) {
     top: -5px;
@@ -81,6 +93,15 @@
   background-color: $c-light;
   border-radius: 50%;
   z-index: 1;
+  opacity: 0;
+  transform: scale(0.2, 0.2);
+  transition: opacity 0s linear 0.2s,
+    transform $duration-fast linear 0.2s;
+
+  .loaded & {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: block;
@@ -253,8 +274,8 @@
       opacity: 1;
       right: 0;
       transition: opacity $duration-fast linear,
-                  background-color $duration-fast linear,
-                  width $duration-fast linear;
+        background-color $duration-fast linear,
+        width $duration-fast linear;
 
       @media (max-width: $tablet) and (orientation: portrait) {
         right: 0;
@@ -269,7 +290,14 @@
 
     &.active {
       &::after {
-        width: 100%;
+        left: 0;
+        width: 0%;
+        transition: background-color $duration-fast linear,
+          width $duration-fast linear 0.2s;
+
+        .loaded & {
+          width: 100%;
+        }
       }
     }
 

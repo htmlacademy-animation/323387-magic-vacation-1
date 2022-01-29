@@ -95,12 +95,12 @@
   line-height: 1.27;
   margin-bottom: -20px;
   opacity: 0;
-  transition: opacity $duration-average linear,
-              margin $duration-average linear;
+  transition: opacity $duration-average linear 0.4s,
+    margin $duration-average linear 0.4s;
 
   .active & {
     opacity: 1;
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 
   @media (min-width: $stop-scaling) {
