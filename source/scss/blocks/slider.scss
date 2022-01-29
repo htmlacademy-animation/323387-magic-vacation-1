@@ -98,8 +98,17 @@
   line-height: 2rem;
   transform: translate(25px, 0);
   opacity: 0;
-  transition: opacity $duration-fast linear 0.3s,
-    transform $duration-fast linear 0.3s;
+  transition: opacity $duration-fast linear,
+    transform $duration-fast linear;
+  transition-delay: 0s, 0s;
+
+  .active & {
+    transition-delay: 0.3s, 0.3s;
+  }
+
+  .screen:not(.active) & {
+    opacity: 0;
+  }
 
   .swiper-slide-active &,
   .swiper-slide-next & {
@@ -108,7 +117,9 @@
   }
 
   .swiper-slide-next & {
-    transition-delay: 0.45s, 0.45s;
+    .active & {
+      transition-delay: 0.45s, 0.45s;
+    }
   }
 
   @media (min-width: $stop-scaling) {
